@@ -1,16 +1,11 @@
 
-//Cat movies
-alert("Did you rent a movie?");
-let moviePrice = 3;
-let littleMermaid = 3 * moviePrice;
-let  howMany = prompt("What movie did you rent?")
-console.log(howMany)
-let brotherBear = 5 * moviePrice;
-let strongHercules =  moviePrice;
+//Class//
+let spaceClass = confirm ("Is there space in this class?");
+let scheduleSpace = confirm ("Do you have space in your schedule?")
+let fullClass = confirm("Do you want to enroll?")
+alert("You are now enrolled. Congrats")
 
-alert("Little Mermaid:" + littleMermaid)
-alert("Brother Bear:" + brotherBear)
-alert ("Hercules:" + strongHercules)
+
 
 
 
