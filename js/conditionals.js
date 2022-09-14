@@ -93,26 +93,30 @@
  * return value.
  */
 var whatNumber = prompt("What is your lucky number?");
-var whatThings = prompt("How many items are in your cart?");
-var newTotal = whatThings - whatNumber;
-
-function calculateTotal(whatNumber,whatThings) {
-    if (whatNumber >= 0 && whatThings === 100) {
-        alert("Sorry but 0 is not a lucky number. Please try again." + newTotal);
-    } else if (whatNumber === 1 && whatThings === 100) {
-        alert("Congratulations! you have won a 10% OFF discount!" + newTotal)
-    } else if (whatNumber === 2 && whatThings === 100) {
-        alert("Congratulations! you have won a 25% OFF discount!" + newTotal);
-    }  else if (whatNumber === 3 && whatThings === 100){
-          alert("Congratulations! you have won a 35% OFF discount!" + newTotal);
+function calculateTotal(luckyNumber){
+    if (luckyNumber > 1){
+        alert("Sorry but 0 is not a lucky number. No discount for you, please try again");
     }
-        else if (whatNumber === 4 && whatThings === 100){
-            alert("Congratulations! you have won a 50% OFF discount" + newTotal);
+    if (luckyNumber == 1){
+        alert("Congratulations! You get a 10% OFF discount!");
     }
-     else (alert("stop stealing!"));
+    else if (luckyNumber == 2){
+        alert("Congratulations! you get a 25% OFF discount!");
+    }
+    else if (luckyNumber == 3){
+        alert("Congratulations! you get a 35% OFF discount!");
+    }
+    else if (luckyNumber == 4){
+        alert("Congratulations! you get a 50% Off discount!")
+    }
+    else if (luckyNumber == 5){
+        alert("Congratulations! you get EVERYTHING FREE")
+    }
+    else {
+        alert("Please stop trying to steal. We will call the cops.")
+    }
 }
 
-calculateTotal(whatNumber, whatThings);
 
 
 
