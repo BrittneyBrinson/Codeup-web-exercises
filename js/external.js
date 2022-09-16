@@ -1,9 +1,19 @@
+// write a function that returns the first and last name of a student
 
-//Class//
-let spaceClass = confirm ("Is there space in this class?");
-let scheduleSpace = confirm ("Do you have space in your schedule?")
-let fullClass = confirm("Do you want to enroll?")
-alert("You are now enrolled. Congrats")
+// 1. prompts for first and last name
+// 2. store first and last name in variables
+// 3. define the function -> parameters? yes
+// // first name * lastName
+// 4. call the function --> arguments? yes
+// // variables
+
+let firstName = prompt("What is your first name?");
+let lastName = prompt("What is your last name?");
+function whatsYourName (first,last) {
+    return firstName + lastName
+};
+alert("Hello" + whatsYourName())
+
 
 
 

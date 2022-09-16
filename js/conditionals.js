@@ -118,10 +118,6 @@ function calculateTotal(luckyNumber){
 }
 
 
-
-
-
-
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -130,8 +126,10 @@ function calculateTotal(luckyNumber){
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+ Generate a random number between 0 and 6
+ var luckyNumber = Math.floor(Math.random() * 6);
+ var whatTotal = prompt("What is your bill total?");
+ var afterDiscount =
 
 /**
  * TODO:

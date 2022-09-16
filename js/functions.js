@@ -88,7 +88,7 @@ let tipPercent = prompt("How much do you want to tip?");
 function calculateTip(tipPercent,totalBill) {
     return tipPercent + totalBill;
 }
-alert("You will be paying:" + calculateTip);
+alert("You will be paying:" + calculateTip)
 
 
 
@@ -108,8 +108,8 @@ alert("You will be paying:" + calculateTip);
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 var originalPrice = prompt("What is the price of the item?")
-var discountAmount = 0 || 1;
-function applyDiscount (x,y) {
+const discountAmount = 0 || 1;
+function applyDiscount (originalPrice,discountAmount) {
     return originalPrice + discountAmount
 }
 alert ("You will be paying" + applyDiscount);
