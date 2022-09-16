@@ -3,9 +3,19 @@
 
 
 
-function showMultiplicationTable (){
-    for (let x = 0; x < 10; x++)
-        {console.log("2 x  " + x + " = ")}
-};
-    showMultiplicationTable()
+//function showMultiplicationTable (){
+  //  for (let x = 0; x < 10; x++)
+    //    {console.log("2 x  " + x + " = ")}
+//};
+  //  showMultiplicationTable()
 
+var allRandom = Math.floor(Math.random() * 2) + 200;
+
+function isEven ()
+    {for (let x = 2; x < 150; x++){
+        if (x % 2 === 2)
+        console.log(x + " is an even number")
+        if (x % 2 === 1)
+            console.log(x + " is not an even number")
+}}
+console.log(isEven(allRandom));
