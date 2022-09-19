@@ -19,28 +19,35 @@
  //           console.log(x + " is not an even number")
 //}}
 //console.log(isEven(allRandom));
-let pyramid = "1";
-let two = "2";
-let three = "3";
-let four ="4";
-let five = "5";
-let six = "6";
-let seven = "7";
-let eight = "8";
-let nine = "9";
-for (pyramid; pyramid < 10; pyramid++){
-    console.log(pyramid.repeat(1))
-    console.log(two.repeat(2))
-    console.log(three.repeat(3))
-    console.log(four.repeat(4))
-    console.log(five.repeat(5))
-    console.log(six.repeat(6))
-    console.log(seven.repeat(7))
-    console.log(eight.repeat(8))
-    console.log(nine.repeat(9))
+//let pyramid = "1";
+//let two = "2";
+//let three = "3";
+//let four ="4";
+//let five = "5";
+//let six = "6";
+//let seven = "7";
+//let eight = "8";
+//let nine = "9";
+//for (pyramid; pyramid < 10; pyramid++){
+//    console.log(pyramid.repeat(1))
+//    console.log(two.repeat(2))
+//    console.log(three.repeat(3))
+//    console.log(four.repeat(4))
+//    console.log(five.repeat(5))
+//    console.log(six.repeat(6))
+//    console.log(seven.repeat(7))
+//    console.log(eight.repeat(8))
+//   console.log(nine.repeat(9))
+//};
+for (let x = 100; x < 101 && x > 0; x--){
+    console.log(x);
+    x--;
+    x--;
+    x--;
+    x--;
+}
 
 
-    };
 
 
 
