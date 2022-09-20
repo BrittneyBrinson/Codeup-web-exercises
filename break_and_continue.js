@@ -6,7 +6,6 @@ do { console.log("Number to skip is:" + oddNumber)
 
 
 
-for (let x = 1; x < 50 && x > 0; x++){
-    console.log("Here is an odd number: " + x--);
+for (let x =)
 
 }
