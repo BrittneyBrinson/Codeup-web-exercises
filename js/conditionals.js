@@ -92,13 +92,13 @@
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-var whatNumber = prompt("What is your lucky number?");
+//var whatNumber = prompt("What is your lucky number?");
 function calculateTotal(luckyNumber){
     if (luckyNumber > 1){
         alert("Sorry but 0 is not a lucky number. No discount for you, please try again");
     }
     if (luckyNumber == 1){
-        alert("Congratulations! You get a 10% OFF discount!");
+        alert("Congratulations! You get a 10% OFF discount!" +" Your new total is " + 0.10 * 100);
     }
     else if (luckyNumber == 2){
         alert("Congratulations! you get a 25% OFF discount!");
@@ -122,15 +122,23 @@ function calculateTotal(luckyNumber){
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
  * (In this line of code, 0 is inclusive, and 6 is exclusive)
+ *
  * Prompt the user for their total bill, then use your `calculateTotal` function
+ *
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
- Generate a random number between 0 and 6
+// Generate a random number between 0 and 6
  var luckyNumber = Math.floor(Math.random() * 6);
  var whatTotal = prompt("What is your bill total?");
- var afterDiscount =
+ var afterDiscount = 100
 
+if( whatTotal >= 100 ){
+    alert("Your total before the discount is: " + whatTotal + " and your lucky number is: " + luckyNumber )
+}
+else {
+    console.log("wow")
+}
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
