@@ -92,59 +92,81 @@
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-//var whatNumber = prompt("What is your lucky number?");
-function calculateTotal(luckyNumber){
-    if (luckyNumber > 1){
-        alert("Sorry but 0 is not a lucky number. No discount for you, please try again");
+var whatNumber = prompt("What is your lucky number?");
+function calculateTotal(whatNumber){
+    if (whatNumber > 1){
+            alert("Sorry but 0 is not a lucky number. No discount for you, please try again");
     }
-    if (luckyNumber == 1){
-        alert("Congratulations! You get a 10% OFF discount!" +" Your new total is " + 0.10 * 100);
+   if (whatNumber === 1){
+        alert("Congratulations! You get a 10% OFF discount!" +" Your new total is " + 100 -(0.10 * 100));
     }
-    else if (luckyNumber == 2){
-        alert("Congratulations! you get a 25% OFF discount!");
+    else if (whatNumber === 2){
+        alert("Congratulations! you get a 25% OFF discount!" + " Your new total is " + (0.25 * 100));
     }
-    else if (luckyNumber == 3){
-        alert("Congratulations! you get a 35% OFF discount!");
+    else if (whatNumber === 3){
+        alert("Congratulations! you get a 35% OFF discount!" + " Your new total is " + (0.35 * 100));
     }
-    else if (luckyNumber == 4){
-        alert("Congratulations! you get a 50% Off discount!")
+    else if (whatNumber === 4){
+        alert("Congratulations! You get a 50% OFF discount!" +" Your new total is " + (0.50 * 100))
     }
-    else if (luckyNumber == 5){
-        alert("Congratulations! you get EVERYTHING FREE")
-    }
-    else {
-        alert("Please stop trying to steal. We will call the cops.")
-    }
+    else if (whatNumber === 5){
+        alert("Congratulations! You get a 10% OFF discount!" +" Your new total is " + (100 - 100));
+           }
+           else {
+               alert("Please stop trying to steal. We will call the cops.")
+           }
 }
 
 
-/**
- * TODO:
- * Uncomment the line below to generate a random number between 0 and 5.
- * (In this line of code, 0 is inclusive, and 6 is exclusive)
- *
- * Prompt the user for their total bill, then use your `calculateTotal` function
- *
- * and alerts to display to the user what their lucky number was, what their
- * price before the discount was, and what their price after the discount is.
- */
-// Generate a random number between 0 and 6
- var luckyNumber = Math.floor(Math.random() * 6);
- var whatTotal = prompt("What is your bill total?");
- var afterDiscount = 100
+        /**
+         * TODO:
+         * Uncomment the line below to generate a random number between 0 and 5.
+         * (In this line of code, 0 is inclusive, and 6 is exclusive)
+         *
+         * Prompt the user for their total bill, then use your `calculateTotal` function
+         *
+         * and alerts to display to the user what their lucky number was, what their
+         * price before the discount was, and what their price after the discount is.
+         */
+//Generate a random number between 0 and 6
+//        var luckyNumber = Math.floor(Math.random() * 6);
+//        var oldBill = prompt("What is your bill total");
+//        if(luckyNumber === 1){
+//            alert("Your lucky number was: " + luckyNumber + " Your price BEFORE the discount is: " + oldBill + " Your NEW total is : " + calculateTotal(luckyNumber))
+//        }
 
-if( whatTotal >= 100 ){
-    alert("Your total before the discount is: " + whatTotal + " and your lucky number is: " + luckyNumber )
-}
-else {
-    console.log("wow")
-}
-/**
- * TODO:
- * Write some JavaScript that uses a `confirm` dialog to ask the user if they
- * would like to enter a number. If they click 'Ok', prompt the user for a
- * number, then use 3 separate alerts to tell the user:
- *
+
+
+
+
+        /**
+         * TODO:
+         * Write some JavaScript that uses a `confirm` dialog to ask the user if they
+         * would like to enter a number. If they click 'Ok', prompt the user for a
+         * number, then use 3 separate alerts to tell the user:
+         **/
+        let smallConfirm = confirm("Would you like to enter a number?");
+        if(smallConfirm === true){
+            var bigPrompt = prompt("What number would you like to choose?")
+        }
+        if(bigPrompt % 2 === 0 && bigPrompt > 0){
+            alert("This number is even and positive")
+        }
+        if(bigPrompt % 2 !== 0 && bigPrompt > 0){
+            alert("This number is odd")
+            alert(bigPrompt + " + 100 " + " = " + (parseInt(bigPrompt) + 100))
+        }
+        if(bigPrompt < 0){
+            alert("This number is negative")
+        }
+        if(bigPrompt ==! typeof 9){
+            alert("That is not a number, please try again")
+        }
+        else{ alert("That is not a number please try again")};
+
+
+
+ /**
  * - whether the number is even or odd
  * - what the number plus 100 is
  * - if the number is negative or positive
@@ -157,3 +179,4 @@ else {
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
