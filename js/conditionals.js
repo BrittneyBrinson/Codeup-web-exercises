@@ -135,10 +135,6 @@ function calculateTotal(whatNumber){
 //            alert("Your lucky number was: " + luckyNumber + " Your price BEFORE the discount is: " + oldBill + " Your NEW total is : " + calculateTotal(luckyNumber))
 //        }
 
-
-
-
-
         /**
          * TODO:
          * Write some JavaScript that uses a `confirm` dialog to ask the user if they
