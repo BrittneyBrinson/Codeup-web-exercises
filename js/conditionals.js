@@ -21,18 +21,18 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-//var theColor = prompt("What is your favorite color");
+var theColor = prompt("What is your favorite color");
 
-//function analyzeColor (theColor){
- //       if (theColor === "blue") {
- //           alert("blue is the color of the sky");
-//      } else if (theColor === "red") {
- //           alert("strawberries are red")
- //       } else {
- //           alert("I dont know anything about " + theColor);
-//        }
-//}
-//console.log(analyzeColor(theColor));
+function analyzeColor (theColor){
+        if (theColor === "blue") {
+          alert("blue is the color of the sky");
+      } else if (theColor === "red") {
+           alert("strawberries are red")
+        } else {
+           alert("I dont know anything about " + theColor);
+        }
+}
+console.log(analyzeColor(theColor));
 
 
 
@@ -41,14 +41,14 @@
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-//var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-//var randomColor = colors[Math.floor(Math.random() * colors.length)];
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-//console.log(analyzeColor(randomColor))
+console.log(analyzeColor(randomColor))
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
@@ -59,16 +59,16 @@
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-// var analyzeColor = prompt("What is your favorite color");
-// switch(analyzeColor){
-//  case "pink":
-//     alert("Pink is a very pretty color");
-//        break;
-//    default:
-//        alert(analyzeColor + " is a nice color");
-//        break;
-// }
-//   console.log(analyzeColor);
+ var analyzeColor = prompt("What is your favorite color");
+ switch(analyzeColor){
+  case "pink":
+     alert("Pink is a very pretty color");
+        break;
+    default:
+        alert(analyzeColor + " is a nice color");
+        break;
+ }
+   console.log(analyzeColor);
 
 
 /* ########################################################################## */
@@ -98,19 +98,19 @@ function calculateTotal(whatNumber){
             alert("Sorry but 0 is not a lucky number. No discount for you, please try again");
     }
    if (whatNumber === 1){
-        alert("Congratulations! You get a 10% OFF discount!" +" Your new total is " + 100 -(0.10 * 100));
+        alert("Congratulations! You get a 10% OFF discount!" +" Your new total is " + (0.10 * 100) - 100);
     }
     else if (whatNumber === 2){
-        alert("Congratulations! you get a 25% OFF discount!" + " Your new total is " + (0.25 * 100));
+        alert("Congratulations! you get a 25% OFF discount!" + " Your new total is " + (0.25 * 100) - 100);
     }
     else if (whatNumber === 3){
-        alert("Congratulations! you get a 35% OFF discount!" + " Your new total is " + (0.35 * 100));
+        alert("Congratulations! you get a 35% OFF discount!" + " Your new total is " + (0.35 * 100) - 100);
     }
     else if (whatNumber === 4){
-        alert("Congratulations! You get a 50% OFF discount!" +" Your new total is " + (0.50 * 100))
+        alert("Congratulations! You get a 50% OFF discount!" +" Your new total is " + (0.50 * 100)- 100)
     }
     else if (whatNumber === 5){
-        alert("Congratulations! You get a 10% OFF discount!" +" Your new total is " + (100 - 100));
+        alert("Congratulations! You get a 10% OFF discount!" +" You GET EVERYTHING FREE");
            }
            else {
                alert("Please stop trying to steal. We will call the cops.")
@@ -129,11 +129,24 @@ function calculateTotal(whatNumber){
          * price before the discount was, and what their price after the discount is.
          */
 //Generate a random number between 0 and 6
-//        var luckyNumber = Math.floor(Math.random() * 6);
-//        var oldBill = prompt("What is your bill total");
-//        if(luckyNumber === 1){
-//            alert("Your lucky number was: " + luckyNumber + " Your price BEFORE the discount is: " + oldBill + " Your NEW total is : " + calculateTotal(luckyNumber))
-//        }
+        var luckyNumber = Math.floor(Math.random() * 6);
+        var oldBill = prompt("What is your bill total");
+        if(luckyNumber === 1){
+            alert("Your lucky number was: " + luckyNumber + " Your price BEFORE the discount is: " + oldBill + " Your NEW total is : " + "$90")
+        }
+        if(luckyNumber === 2){
+            alert("Your lucky number was: " + luckyNumber + " Your price BEFORE the discount is: " + oldBill + " Your NEW total is : " + "$75")
+        }
+        if(luckyNumber === 3){
+            alert("Your lucky number was: " + luckyNumber + " Your price BEFORE the discount is: " + oldBill + " Your NEW total is : " + "$65")
+        }
+        if(luckyNumber === 4){
+            alert("Your lucky number was: " + luckyNumber + " Your price BEFORE the discount is: " + oldBill + " Your NEW total is : " + "$50")
+        }
+        if(luckyNumber === 5){
+            alert("Your lucky number was: " + luckyNumber + " Your price BEFORE the discount is: " + oldBill + " Your NEW total is : " + "0! YOU GET EVERYTHING FREE")
+        }
+
 
         /**
          * TODO:
@@ -141,24 +154,24 @@ function calculateTotal(whatNumber){
          * would like to enter a number. If they click 'Ok', prompt the user for a
          * number, then use 3 separate alerts to tell the user:
          **/
-        let smallConfirm = confirm("Would you like to enter a number?");
+       let smallConfirm = confirm("Would you like to enter a number?");
         if(smallConfirm === true){
             var bigPrompt = prompt("What number would you like to choose?")
         }
-        if(bigPrompt % 2 === 0 && bigPrompt > 0){
-            alert("This number is even and positive")
-        }
-        if(bigPrompt % 2 !== 0 && bigPrompt > 0){
-            alert("This number is odd")
+       if(bigPrompt % 2 === 0 && bigPrompt > 0){
+           alert("This number is even and positive")
+       }
+       if(bigPrompt % 2 !== 0 && bigPrompt > 0){
+           alert("This number is odd")
             alert(bigPrompt + " + 100 " + " = " + (parseInt(bigPrompt) + 100))
-        }
-        if(bigPrompt < 0){
-            alert("This number is negative")
-        }
-        if(bigPrompt ==! typeof 9){
-            alert("That is not a number, please try again")
-        }
-        else{ alert("That is not a number please try again")};
+      }
+      if(bigPrompt < 0){
+           alert("This number is negative")
+       }
+       if(bigPrompt ==! typeof 9){
+          alert("That is not a number, please try again")
+      }
+      else{ alert("That is not a number please try again")};
 
 
 
