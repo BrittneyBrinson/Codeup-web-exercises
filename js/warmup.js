@@ -38,25 +38,21 @@
 // using .filter() method to iterate over the given array
 // Look to see if each number doesn't have a remainder when divided by 2 (use modulo%)
 //the filter method will only return even numbers in a new array
-var randomArray = [1,2,3,4,5,6,7,8,9,10];
-const evenNumbers = randomArray.filter(number => {
-    return number % 2 === 0;
-})
-console.log(evenNumbers);
-
-
-
-
-
-
+//var randomArray = [1,2,3,4,5,6,7,8,9,10];
+//const evenNumbers = randomArray.filter(number => {
+//    return number % 2 === 0;
+//})
+//console.log(evenNumbers);
 
 
 
 
 
 // 2.Write a function that takes an array of objects and a string as arguments. Add a property with key ‘continent’ and value equal to the string to each of the objects. Return the new array of objects. Don’t mutate the original array.
-function arrayOfObjects([{x}]){
+function arrayOfObjects(x){
+    return x.push("Asia") ;
 
 
 }
+arrayOfObjects()
 
