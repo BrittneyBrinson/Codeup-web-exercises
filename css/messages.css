@@ -8,15 +8,30 @@ body, html {
 
 .message-message-info {
     background-color: cornflowerblue;
-    margin: 2em 0em 2em 0em;
+    margin: 0.8em 0em 0.8em 0em;
+    border: solid #c7c0b9 ;
+    color: #2749ba;
+    padding:  0.5em 0.5em 0.5em 0.5em;
 
 }
 
 .message-message-success {
     background-color: #cbffcd;
-    margin: 2em 0em 2em 0em;
+    margin: 0.8em 0em 0.8em 0em;
+    border: solid #c7c0b9;
+    padding:  0.5em 0.5em 0.5em 0.5em;
 }
 
 .message-message-warning {
     background-color:#faf450 ;
+    margin: 0.8em 0em 0.8em 0em;
+    border: solid #c7c0b9;
+    padding:  0.5em 0.5em 0.5em 0.5em;
+}
+
+.message-message-error {
+    background-color: #db5a48;
+    margin: 0.8em 0em 0.8em 0em;
+    border: solid #c7c0b9;
+    padding:  0.5em 0.5em 0.5em 0.5em;
 }
