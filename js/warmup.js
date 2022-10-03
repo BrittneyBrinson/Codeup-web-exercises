@@ -49,10 +49,23 @@
 
 
 // 2.Write a function that takes an array of objects and a string as arguments. Add a property with key ‘continent’ and value equal to the string to each of the objects. Return the new array of objects. Don’t mutate the original array.
-function arrayOfObjects(x){
-    return x.push("Asia") ;
+//function arrayOfObjects(x){
+//    return x.push("Asia") ;
 
 
+//}
+//arrayOfObjects()
+
+
+// var i = 20; while (i >= 0) { console.log(i); i--; }
+for(i = 20; i >= 0; i--){
+    console.log(i)
 }
-arrayOfObjects()
+ var fruits = ["mango", "blueberries", "oranges", "banana", "papaya", "kiwi"];
+console.log(fruits.unshift("strawberry"))
+console.log(fruits.push("strawberry"))
+console.log(fruits.splice(fruits.indexOf("oranges") + 1, 0, "strawberry"));
+console.log(fruits)
+
+
 
