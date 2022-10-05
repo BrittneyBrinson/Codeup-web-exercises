@@ -1,0 +1,48 @@
+@media screen and (min-width: 365px) and (max-width: 1192px){
+    body {
+        display:inline-block;
+        flex-direction: column;
+
+    }
+
+    h1 {
+
+        text-align: center;
+    }
+    div>a{
+        background-color:lightblue;
+        margin-solid: lightblue;
+        border: 20px;
+        display: flex;
+        padding: 20px;
+        justify-content: center;
+        border:solid black;
+        flex-shrink: 0;
+        flex-basis: auto;
+
+    }
+    nav{
+
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: left;
+        margin-right: 20px;
+        flex-shrink: 0;
+
+
+    }
+    ul>li{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        border: solid black;
+        padding: 20px;
+        width: 300px;
+        margin: 30px;
+        background-color: lightgrey;
+
+
+
+    }
+}
+
