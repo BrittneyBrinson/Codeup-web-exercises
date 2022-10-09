@@ -25,13 +25,27 @@ header {
 a {
     color: var(--link-color);
 }
+/*position: fixed makes the navigation bar "stick". No matter how much I scroll it will stay in place.*/
 .top-nav {
     background: var(--light-bg);
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+
+
+}
+/* display:inline-block means all the items with this class will be in the same block. Theres no line break after the elements so they can sit next to each other*/
+.nav-item {
+    display: inline-block;
+    padding: 1.5em;
+
 }
 .nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: inline-block;
+
 }
 .nav-link {
     color: var(--main-link-color);
@@ -43,6 +57,7 @@ a {
 }
 .profile {
     background: var(--light-bg);
+    height: 80px;
 }
 .btn {
     border: 1px solid var(--main-link-color);
@@ -65,4 +80,64 @@ a {
 }
 .text-muted {
     color: var(--main-link-color);
+}
+
+.profile-image {
+    position: absolute;
+    top: 240px;
+}
+/*since the container for the .profile-form class(.profile) is 80px then by setting the line-height for .profile-form class to be the same as its container height. Will result in the class element(.profile-form) to be CENTERED */
+.profile {
+    height: 80px;
+}
+.profile-entry {
+    margin: .5em;
+}
+
+.profile-form {
+    float: right;
+    line-height: 80px;
+}
+.profile-details {
+    margin: 0 .5em 0 .5em;
+    width: calc(25% - .5);
+    float: left;
+}
+.profile-items {
+    list-style: none;
+    padding: 0;
+}
+.timeline {
+    margin: 0 .5em 0 .5em;
+    width: calc(50% - .5);
+    float: left;
+}
+
+.who-to-follow {
+    margin: 0 .5em 0 .5em;
+    width: calc(25% - .5);
+    float: left;
+}
+.container {
+    margin: 2em;
+}
+.media {
+    width: 100%;
+    background-color: var(--light-bg);
+    border: 1px var(--separator-color);
+    padding: .5em;
+    overflow: scroll;
+}
+/* since both classes media-image & media-body have float left, they will sit next to each other */
+.media-image {
+    max-width: 50px;
+    float: left;
+    margin-top: 1.33em;
+}
+.media-body {
+    float: left;
+    width: calc(100% - 50);
+}
+.timeline {
+    margin-bottom: 5px;
 }
