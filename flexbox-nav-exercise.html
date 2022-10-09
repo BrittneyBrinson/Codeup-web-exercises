@@ -3,26 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/flexbox-nav-exercise.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
-<body class="nav">
+<body>
+<div class="container">
     <nav>
         <ul>
-            <li><a href="#">Articles</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Market</a></li>
-            <li><a href="#">Jobs</a></li>
+            <div id="group-one">
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Market</a></li>
+                <li><a href="#">Jobs</a></li>
+            </div>
+            <div>
+                <img id="img" src="cover/FakeLogo.png">
+            </div>
+            <div id="group-two">
+                <li><a href="#">Follow Us</a></li>
+                <a><img src="cover/icons8-shopping-cart-48.png"></a>
+                <a><img src="cover/icons8-magnifying-glass-tilted-right-48.png"></a>
+                <a><img src="cover/icons8-bust-in-silhouette-48.png"></a>
+            </div>
         </ul>
     </nav>
-    <nav>
-        <img id="img" src="cover/FakeLogo.png">
-    </nav>
-    <nav>
-        <ul>
-            <li><a href="#">Follow Us</a></li>
-        </ul>
-        <a><img src="cover/icons8-shopping-cart-48.png"></a>
-        <a><img src="cover/icons8-magnifying-glass-tilted-right-48.png"></a>
-    </nav>
-
+</div>
 </body>
 </html>
