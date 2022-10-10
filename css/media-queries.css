@@ -1,4 +1,4 @@
-@media screen and (min-width: 365px) and (max-width: 1192px){
+@media screen and (max-width: 576px){
     body {
         display:inline-block;
         flex-direction: column;
@@ -41,8 +41,25 @@
         margin: 30px;
         background-color: lightgrey;
 
+    }
+    .header {
+        display: flex;
+        margin: 0 0 0 135px;
+        justify-content: start;
+        font-size: 50px;
+    }
+    .blue-button {
+        margin: 0 60px 0 0;
+    }
+    .container {
+       display: inline-block;
+       margin: 0 0 0 80px;
+       width: 335px;
 
-
+    }
+    .header-img {
+        max-width: 100%;
+        height: auto;
     }
 }
 
