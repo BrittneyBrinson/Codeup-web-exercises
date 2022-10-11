@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+body {
+    background: lavenderblush linear-gradient(45deg,lightpink,white);
+}
+#line-element {
+    height: 10px;
+    background-color: black;
+}
+#img-resize {
+    max-height: 48px;
+    background: none;
+}
+#name {
+    font-family: "Calligraffitti" , cursive;
+}
+.fancy-headers {
+    font-family: "Merriweather", serif;
+}
+.sub-headers {
+    font-family: "Lato", sans-serif;
+}
