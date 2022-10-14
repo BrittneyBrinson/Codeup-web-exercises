@@ -81,7 +81,22 @@
             console.log(subTwo);
 
         })();
+</script>
+<button id="btn-1">one</button>
+<button id="btn-2">two</button>
+<button id="btn-3">three</button>
+<button id="btn-4">four</button>
+<button id="btn-5">five</button>
+<script>
+    var listenUp = function (){
+        alert ("This is button number 1");
+    }
+    document.getElementById("btn-1").addEventListener("click", listenUp);
 
+    var lookAtThis = function(){
+        alert("I see you about to click this button 👀")
+    };
+    document.getElementById("btn-2").addEventListener("mouseover", lookAtThis);
 
 </script>
 </body>
