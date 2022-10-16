@@ -36,12 +36,19 @@
         <div class="row">
             <div class="col-xs-5 col-lg-12 d-flex justify-content-center flex-wrap ">
                 <p>I currently live in Charlotte, NC and I am a AirForce veteran of 6 years. I am currently learning Bootstrap,HTML,CSS, and JavaScript. </p>
-                <p class="col d-flex justify-content-around mx-0"><br><img src="cover/icons8-phone-50.png">999-999-1111<br><img src="cover/icons8-circled-envelope-50.png">fake@gmail.com<br><img id="img-resize" src="cover/icons8-linkedin-circled-50.png"> @linked-in-account<br><img src="cover/icons8-github-50.png">@github account</p>
             </div>
+        <div class="row">
+            <div class="d-flex col-xs-12 justify-content-center col-xl-3"><img src="cover/icons8-phone-50.png">999-999-1111</div>
+            <div class="d-flex col-xs-12 justify-content-center col-xl-3"><img src="cover/icons8-circled-envelope-50.png">fake@gmail.com</div>
+            <div class="d-flex col-xs-12 justify-content-center col-xl-3"><img id="img-resize" src="cover/icons8-linkedin-circled-50.png">@linked-in-account</div>
+            <div class="d-flex col-xs-12 justify-content-center col-xl-3"><img src="cover/icons8-github-50.png">@github account</div>
+        </div>
+        <div>
             <hr id="line-element">
         </div>
         <div class="row">
-            <div class="col-xs-5">
+            <!--By adding two col equal to 6 they will be side by side when the xl-breakpoint is reached. Since bootstrap has 12 col in each row-->
+            <div class="col-xs-6 col-xl-6">
                 <h3 class="fancy-headers">SKILLS AND ABILITIES</h3>
                 <ul>
                     <li>HTML</li>
@@ -49,24 +56,21 @@
                     <li>Javascript</li>
                     <li>Bootstrap</li>
                 </ul>
+                <h3 class="fancy-headers">ACADEMIC</h3>
+                <p class="sub-headers">Currently attending University of Arizona Global Campus for BA in Computer Science and Information Technology</p>
+                <h3 class="fancy-headers">PROFESSIONAL EXPERIENCE</h3>
+                <p class="sub-headers">Job 1<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aut culpa dignissimos ducimus eius illum laboriosam nihil nisi numquam quaerat reiciendis, repellat rerum veniam! Atque consectetur eaque fugit repellat tenetur.</p>
+                <p class="sub-headers">Job 2<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aut culpa dignissimos ducimus eius illum laboriosam nihil nisi numquam quaerat reiciendis, repellat rerum veniam! Atque consectetur eaque fugit repellat tenetur.</p>
             </div>
-        </div>
-        <div class="row">
-                    <div class="col-xs-6 col-lg-6 flex-md-wrap">
-                        <h3 class="fancy-headers flex-md-wrap">ACADEMIC</h3>
-                            <p class="sub-headers">Currently attending University of Arizona Global Campus for BA in Computer Science and Information Technology</p>
-                        <h3 class="fancy-headers">PROFESSIONAL EXPERIENCE</h3>
-                            <p class="sub-headers">Job 1<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aut culpa dignissimos ducimus eius illum laboriosam nihil nisi numquam quaerat reiciendis, repellat rerum veniam! Atque consectetur eaque fugit repellat tenetur.</p>
-                   </div>
-        </div>
-        <div class="row flex-basis">
-            <h3 class="fancy-headers">DEVELOPMENT PROJECTS</h3>
-            <p class="sub-headers">Project 1<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto autem consequatur, corporis enim esse est, fugit in iure odio quaerat qui quisquam quos tenetur unde vitae voluptatibus! Dolore, eveniet? </p>
-            <p class="sub-headers">Project 2<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore eligendi error expedita facilis ipsum modi neque nisi, placeat porro provident quibusdam quis quisquam, rerum saepe, tempora totam vel veritatis.</p>
-            <p class="sub-headers">Project 3<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto beatae delectus deleniti doloremque ipsum magnam magni quidem, quis quo recusandae vitae? Minima mollitia quaerat ratione similique vel? Velit, voluptate?</p>
-            <h3 class="fancy-headers">AWARDS AND INVOLVEMENT</h3>
-            <p class="sub-headers">Award 1<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid dignissimos doloremque eos et exercitationem iure iusto nesciunt perspiciatis, quod ratione ullam? Animi consequatur, consequuntur fuga iure perspiciatis porro vero?</p>
-            <p class="sub-headers">Involvement 1<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi eaque error, molestiae mollitia nisi nobis obcaecati odit quod suscipit unde voluptas. Consectetur deleniti dolores eveniet fugiat id possimus totam.</p>
+            <div class="col-xs-6 col-xl-6">
+                <h3 class="fancy-headers">DEVELOPMENT PROJECTS</h3>
+                    <p class="sub-headers">Project 1<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto autem consequatur, corporis enim esse est, fugit in iure odio quaerat qui quisquam quos tenetur unde vitae voluptatibus! Dolore, eveniet? </p>
+                    <p class="sub-headers">Project 2<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore eligendi error expedita facilis ipsum modi neque nisi, placeat porro provident quibusdam quis quisquam, rerum saepe, tempora totam vel veritatis.</p>
+                    <p class="sub-headers">Project 3<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto beatae delectus deleniti doloremque ipsum magnam magni quidem, quis quo recusandae vitae? Minima mollitia quaerat ratione similique vel? Velit, voluptate?</p>
+                <h3 class="fancy-headers">AWARDS AND INVOLVEMENT</h3>
+                    <p class="sub-headers">Award 1<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid dignissimos doloremque eos et exercitationem iure iusto nesciunt perspiciatis, quod ratione ullam? Animi consequatur, consequuntur fuga iure perspiciatis porro vero?</p>
+                    <p class="sub-headers">Involvement 1<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi eaque error, molestiae mollitia nisi nobis obcaecati odit quod suscipit unde voluptas. Consectetur deleniti dolores eveniet fugiat id possimus totam.</p>
+            </div>
         </div>
       </div>
     </div>
