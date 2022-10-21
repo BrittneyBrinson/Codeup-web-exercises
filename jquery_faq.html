@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Estes National Park</title>
+</head>
+<body>
+<style>
+    .invisible { visibility: hidden}
+</style>
+<h1>Estes Park Colorado</h1>
+<dl>
+    <dt class="highlight"><strong>Where is Estes National Park located?</strong></dt>
+    <dd class="invisible">Located 90 miles northwest of Denver, Colorado. Sitting in the heart of the Rocky Mountains</dd>
+    <dt class="highlight"><strong>Are there bears in Estes Park?</strong></dt>
+    <dd class="invisible">Yes! the bear population is mostly active during summer and the fall season.</dd>
+    <dt class="highlight"><strong>Are there cabins available during the winter season?</strong></dt>
+    <dd class="invisible">Yes! We have many cabins available on a first come, first serve basis.</dd>
+</dl>
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+    "use strict";
+    $(document).click(function(){
+        $('.invisible').toggleClass('invisible')
+    });
+    $(document).click(function(){
+       $('.highlight').css('background-color', 'yellow')
+    });
+</script>
+</body>
+</html>
