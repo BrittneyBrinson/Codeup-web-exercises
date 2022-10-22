@@ -23,21 +23,21 @@
 </dl>
 <h3 class="header">Yellowstone National Park</h3>
 <ul class="parks">
-    <li>park facts</li>
+    <li class="list">park facts</li>
     <li>park facts</li>
     <li>park facts</li>
     <li>park facts</li>
 </ul>
 <h3 class="header">Yosemite National Park</h3>
 <ul class="parks">
-    <li>park facts</li>
+    <li class="list">park facts</li>
     <li>park facts</li>
     <li>park facts</li>
     <li>park facts</li>
 </ul>
 <h3 class="header">Grand Canyon National Park</h3>
 <ul class="parks">
-    <li>park facts</li>
+    <li class="list">park facts</li>
     <li>park facts</li>
     <li>park facts</li>
     <li>park facts</li>
@@ -51,23 +51,20 @@
     $(document).click(function(){
        $('.highlight').css('background-color', 'yellow')
     });
+    let parksBold = $('.header').click(function(){
+        $('.parks').children().css('font-weight', 'bold')});
+    parksBold();
+    $(document).click(function(){
+        $('li').first().css('color', 'blue')
+    });
 
     var yellowButton = $('li').each(function(index){
         if(index === 3 || index === 7 || index === 11){
             $(this).css('background-color', 'yellow')
         }
     });
-
-let parksBold = $('.header').click(function(){
-    $('.parks').children().css('font-weight', 'bold')});
-parksBold();
-     $('h3').children().click(function(){
-         $('li').css('color', 'blue')
-
-});
-     let buttonClick = document.getElementById('yellow');
-     buttonClick.addEventListener('click', yellowButton)
+    function btn(){ $('#event').addEventListener('click', yellowButton)};
 </script>
-<button id="yellow">Please turn yellow</button>
+<button id="event">Click Me</button>
 </body>
 </html>
