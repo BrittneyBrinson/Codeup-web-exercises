@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Estes National Park</title>
+    <script src="js/jquery-3.6.0.js"></script>
 </head>
 <body>
 <style>
@@ -42,7 +43,6 @@
     <li>park facts</li>
     <li>park facts</li>
 </ul>
-<script src="js/jquery-3.6.0.js"></script>
 <script>
     "use strict";
     $(document).click(function(){
@@ -58,13 +58,22 @@
         $('li').first().css('color', 'blue')
     });
 
-    var yellowButton = $('li').each(function(index){
-        if(index === 3 || index === 7 || index === 11){
-            $(this).css('background-color', 'yellow')
-        }
+    // //var yellowButton = $('li').each(function(index){
+    //     if(index === 3 || index === 7 || index === 11){
+    //         $(this).css('background-color', 'yellow')
+    //     }
+    // });
+    var beYellow = $('li').each(function(index){
+          if(index === 3 || index === 7 || index === 11){
+          $('this').css('background-color', 'yellow')
+    }
     });
-    function btn(){ $('#event').addEventListener('click', yellowButton)};
+    document.getElementById('clickNow').addEventListener('click', beYellow);
+
 </script>
-<button id="event">Click Me</button>
+
+<button id="clickNow">Click Me!</button>
+
+
 </body>
 </html>
