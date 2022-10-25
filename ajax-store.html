@@ -1,31 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Online Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-<h1>My Tool Store</h1>
-<div id="update">
-<table id="products">
-    <thead>
+<h1 class="d-flex justify-content-center">My Tool Store</h1>
+    <table class="table table-success">
+        <thead>
         <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
+            <th scope="col">#</th>
+            <th scope="col">Tool Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">In-Stock</th>
         </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-</table>
-</div>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td id="row-one"></td>
+            <td id="row-price"></td>
+            <td id="row-stock"></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td id="row-two"></td>
+            <td id="row-two-price"></td>
+            <td id="row-two-stock"></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td id="row-three"></td>
+            <td id="row-three-price"></td>
+            <td id="row-three-stock"></td>
+        </tr>
+        </tbody>
+    </table>
+
 <script src="js/jquery-3.6.0.js"></script>
 <script>
     (function () {
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-var storeItems = "";
-    $.get("/data/inventory.json").done(function (data) {
-        document.getElementById("#products").append("<tr></tr>" + JSON.stringify(data))
-      console.log(JSON.stringify(data));
+
+    $.get("data/inventory.json").done(function (data) {
+       let toolTitle = JSON.stringify(data[0].title).replace(/[""]/g, '')
+        let toolQuantity = JSON.stringify(data[0].quantity)
+        let toolPrice = JSON.stringify(data[0].price)
+        let toolTitleTwo = JSON.stringify(data[1].title).replace(/[""]/g, '')
+        let toolPriceTwo = JSON.stringify(data[1].price)
+       let toolStockTwo = JSON.stringify(data[1].quantity)
+        let toolTitleThree = JSON.stringify(data[2].title).replace(/[""]/g, '');
+       let toolPriceThree = JSON.stringify(data[2].price)
+            $('#row-one').append(`<td>${toolTitle}</td>`);
+            $('#row-price').append(`<td>$ ${toolPrice}.00</td>`);
+            $('#row-stock').append(`<td>${toolQuantity}</td>`);
+            $('#row-two').append(`<td>${toolTitleTwo}</td>`);
+            $('#row-two-price').append(`<td>$ ${toolPriceTwo}.00</td>`);
+            $('#row-two-stock').append(`<td>${toolStockTwo}</td>`);
+            $('#row-three').append(`<td>${toolTitleThree}</td>`);
+            $('#row-three-price').append(`<td>$ ${toolPriceThree}.00</td>`)
+
+// when working with jQuery make sure to use jquery throughout the entire function. Can not mix and match jquery methods with DOM methods
+        // EXAMPLE: DO NOT DO THIS! console.log(document.getElementById("#insertProducts"))
+       // document.getElementById("#insertProducts").append(`<td><div>${JSON.stringify(data[0])}</div></td>`)
+
     })
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
@@ -33,6 +73,6 @@ var storeItems = "";
     //       HINT: You will want to target #insertProducts for your new HTML elements
 })();
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>
