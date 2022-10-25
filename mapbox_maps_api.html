@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox</title>
+    <script src="js/mapbox-geocode-utils.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <style>
+        #map{
+            width: 100%;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+<div id="map">
+
+</div>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+<script>
+    const key = "pk.eyJ1IjoiYnJpdHRuZXliOTUiLCJhIjoiY2w5b2YzbnJ4MGd3bDNwcXAybmI2cGp2biJ9.UZHsmkRO2W6YUG4leShgFA";
+
+    mapboxgl.accessToken = key;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 3,
+        center:[-104.99000,39.74616]
+    });
+    geocode("500 16th st mall, Denver,CO 80202", key).then(function(result) {
+        map.setCenter(result);
+        map.setZoom(15);
+    });
+    //let marker = new mapboxgl.Marker().setLngLat([-104.99045, 39.74284]).addTo(map);
+    //let popup = new mapboxgl.Popup().setLngLat([-104.99045, 39.74284]).setHTML("<h4>Maggiano's Little Italy</h4>").addTo(map);
+    const favRest = [{"longitude":-104.99045, "latitude":39.74284, "details":"MAGGIANO'S LITTLE ITALY: Best fettuccine alfredo I've had in my life, prices were a little high but the plates were huge"},{"longitude":-80.73070, "latitude":35.37644, "details":"TACOS 4 LIFE: Tasty tacos for a great price and their snickerdoodle cookies were divine"},{"longitude":-80.86810, "latitude":35.19831, "details":"CHIC-FIl-A: I'm in love with their mac and cheese and sweet tea. I have to restrain myself from going here every week."}];
+    favRest.forEach(function(rest){
+        console.log(JSON.stringify(rest.location));
+        let markerTwo = new mapboxgl.Marker().setLngLat([rest.longitude,rest.latitude]).addTo(map);
+        let popup = new mapboxgl.Popup().setLngLat([rest.longitude, rest.latitude]).setHTML([rest.details]).addTo(map);
+
+
+
+
+
+    });
+
+</script>
+
+</body>
+</html>
