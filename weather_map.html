@@ -16,20 +16,28 @@
 <script>
    let myHomeLat = "35.227085";
    let myHomeLon = "-80.843124";
-   $.ajax(`https://api.openweathermap.org/data/2.5/weather?lat=${myHomeLat}&lon=${myHomeLon}&appid=${weatherKey}`).done(function(data){
-      console.log(data);
-      let windSpeed = data.wind.speed;
-      let humidLevel = data.main.humidity;
-      let skyStatus = data.weather[0].description;
-      let bigPressure = data.main.pressure;
-      $("#description").append(`<p>${skyStatus}</p>`)
-      $("#humid").append(`<p>${humidLevel} %</p>`)
-      $("#wind").append(`<p>${windSpeed} mph</p>`)
-       $("#pressure").append(`<p>${bigPressure} inHg</p>`)
+   // If I generated the data for each day the long way, then I would have ALOT of code. I'm going to try a forEach loop to iterate through the list array of obj
+   $.ajax(`https://api.openweathermap.org/data/2.5/forecast?lat=${myHomeLat}&lon=${myHomeLon}&appid=${weatherKey}`).done(function(data){
+      console.log(data.list[0].weather[0].main)
+       console.log(data)
+       let skyStatus = data.list[0].weather[0].main;
+       // data.list.forEach(function(days){
+       //     if(days.list === 1666818000 || 1666872000){
+       //      $("#description").append(`<p>${skyStatus}</p>`)
+       //     }
+       // });
+      // let windSpeed = data.wind.speed;
+      // let humidLevel = data.main.humidity;
+      // let skyStatus = data.weather[0].description;
+      // let bigPressure = data.main.pressure;
+      // $("#description").append(`<p>${skyStatus}</p>`)
+      // $("#humid").append(`<p>${humidLevel} %</p>`)
+      // $("#wind").append(`<p>${windSpeed} mph</p>`)
+      //  $("#pressure").append(`<p>${bigPressure} inHg</p>`)
    });
 </script>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-2">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Wednesday</h5>
@@ -40,11 +48,58 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-2">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Thursday</h5>
-                <p class="card-text">stuff</p>
+                <p class="card-text">Description:</p>
+                <p class="card-text">Humidity:</p>
+                <p class="card-text">Wind Speed:</p>
+                <p class="card-text">Pressure:</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Friday</h5>
+                <p class="card-text">Description:</p>
+                <p class="card-text">Humidity:</p>
+                <p class="card-text">Wind Speed:</p>
+                <p class="card-text">Pressure:</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Saturday</h5>
+                <p class="card-text">Description:</p>
+                <p class="card-text">Humidity:</p>
+                <p class="card-text">Wind Speed:</p>
+                <p class="card-text">Pressure:</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Sunday</h5>
+                <p class="card-text">Description:</p>
+                <p class="card-text">Humidity:</p>
+                <p class="card-text">Wind Speed:</p>
+                <p class="card-text">Pressure:</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Monday</h5>
+                <p class="card-text">Description:</p>
+                <p class="card-text">Humidity:</p>
+                <p class="card-text">Wind Speed:</p>
+                <p class="card-text">Pressure:</p>
             </div>
         </div>
     </div>
