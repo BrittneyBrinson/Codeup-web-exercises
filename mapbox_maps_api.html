@@ -34,7 +34,7 @@
     });
     //let marker = new mapboxgl.Marker().setLngLat([-104.99045, 39.74284]).addTo(map);
     //let popup = new mapboxgl.Popup().setLngLat([-104.99045, 39.74284]).setHTML("<h4>Maggiano's Little Italy</h4>").addTo(map);
-    const favRest = [{"longitude":-104.99045, "latitude":39.74284, "details":"MAGGIANO'S LITTLE ITALY: Best fettuccine alfredo I've had in my life, prices were a little high but the plates were huge"},{"longitude":-80.73070, "latitude":35.37644, "details":"TACOS 4 LIFE: Tasty tacos for a great price and their snickerdoodle cookies were divine"},{"longitude":-80.86810, "latitude":35.19831, "details":"CHIC-FIl-A: I'm in love with their mac and cheese and sweet tea. I have to restrain myself from going here every week."}];
+    const favRest = [{"longitude":-104.99045, "latitude":39.74284, "details":"MAGGIANO'S LITTLE ITALY: Best fettuccine alfredo I've had in my life, prices were a little high but the plates were huge."},{"longitude":-80.73070, "latitude":35.37644, "details":"TACOS 4 LIFE: Tasty tacos for a great price and their snickerdoodle cookies were divine."},{"longitude":-80.86810, "latitude":35.19831, "details":"CHIC-FIl-A: I'm in love with their mac and cheese and sweet tea. I have to restrain myself from going here every week."}];
     favRest.forEach(function(rest){
         console.log(JSON.stringify(rest.location));
         let markerTwo = new mapboxgl.Marker().setLngLat([rest.longitude,rest.latitude]).addTo(map);
