@@ -34,7 +34,7 @@
        let humidFive = data.list[31].main.humidity;
        // WIND SPEED DATA
        let windOne = data.list[0].wind.speed;
-       let windTwo = date.list[7].wind.speed;
+       let windTwo = data.list[7].wind.speed;
        let windThree = data.list[15].wind.speed;
        let windFour = data.list[23].wind.speed;
        let windFive = data.list[31].wind.speed;
@@ -44,10 +44,80 @@
        let pressThree = data.list[15].main.pressure;
        let pressFour = data.list[23].main.pressure;
        let pressFive = data.list[31].main.pressure;
-      // $("#description").append(`<p>${skyStatus}</p>`)
-      // $("#humid").append(`<p>${humidLevel} %</p>`)
-      // $("#wind").append(`<p>${windSpeed} mph</p>`)
-      //  $("#pressure").append(`<p>${bigPressure} inHg</p>`)
+       // CARD DATA ORGANIZED
+       // CARD ONE
+       $("#description").append(`<p>${oneSky}</p>`);
+       $("#humid").append(`<p>${humidOne}</p>`);
+       $("#wind").append(`<p>${windOne} MPH</p>`);
+       $("#pressure").append(`<p>${pressOne}</p>`);
+       //CARD TWO
+       $("#description-two").append(`<p>${twoSky}</p>`);
+       $("#humid-two").append(`<p>${humidTwo}</p>`);
+       $("#wind-two").append(`<p>${windTwo} MPH</p>`);
+       $("#pressure-two").append(`<p>${pressTwo}</p>`);
+       // CARD THREE
+       $("#description-three").append(`<p>${threeSky}</p>`);
+       $("#humid-three").append(`<p>${humidThree}</p>`);
+       $("#wind-three").append(`<p>${windThree} MPH</p>`);
+       $("#pressure-three").append(`<p>${pressThree}</p>`);
+       // CARD FOUR
+       $("#description-four").append(`<p>${fourSky}</p>`);
+       $("#humid-four").append(`<p>${humidFour}</p>`);
+       $("#wind-four").append(`<p>${windFour} MPH</p>`);
+       $("#pressure-four").append(`<p>${pressFour}</p>`);
+       // CARD FIVE
+       $("#description-five").append(`<p>${fiveSky}</p>`);
+       $("#humid-five").append(`<p>${humidFive}</p>`);
+       $("#wind-five").append(`<p>${windFive} MPH</p>`);
+       $("#pressure-five").append(`<p>${pressFive}</p>`);
+       // CONDITIONAL STATEMENTS FOR ICONS
+       // DAY ONE
+       if(oneSky === "overcast clouds"){
+           $("#description").append(`<img src="cover/icons8-cloud-48.png">`)
+       }
+       else if(oneSky === "light rain"){
+           $("#description").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+       }
+       // DAY TWO
+       if(twoSky === "overcast clouds"){
+           $("#description-two").append(`<img src="cover/icons8-cloud-48.png">`)
+       }
+            else if(twoSky === "clear sky"){
+                $("#description-two").append(`<img src="cover/icons8-sun-48.png">`)
+       }
+                else if(twoSky === "light rain"){
+                    $("#description-two").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+       }
+       // DAY THREE
+       if(threeSky === "overcast clouds"){
+           $("#description-three").append(`<img src="cover/icons8-cloud-48.png">`)
+       }
+            else if(threeSky === "clear sky"){
+           $("#description-three").append(`<img src="cover/icons8-sun-48.png">`)
+       }
+                else if(threeSky === "light rain"){
+                    $("#description-three").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+       }
+       // DAY FOUR
+       if(fourSky === "overcast clouds"){
+           $("#description-four").append(`<img src="cover/icons8-cloud-48.png">`)
+       }
+            else if(fourSky === "clear sky"){
+           $("#description-four").append(`<img src="cover/icons8-sun-48.png">`)
+       }
+                else if(fourSky === "light rain") {
+           $("#description-four").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+       }
+       // DAY FIVE
+       if(fiveSky === "overcast clouds"){
+           $("#description-five").append(`<img src="cover/icons8-cloud-48.png">`)
+       }
+            else if(fiveSky === "clear sky"){
+                $("#description-five").append(`<img src="cover/icons8-sun-48.png">`)
+       }
+                else if(fiveSky === "light rain") {
+                    $("#description-five").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+       }
    });
     function convertTime1(){
        unixTime = 1666904400;
@@ -72,10 +142,10 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Thursday</h5>
-                <p class="card-text">Description:</p>
-                <p class="card-text">Humidity:</p>
-                <p class="card-text">Wind Speed:</p>
-                <p class="card-text">Pressure:</p>
+                <p class="card-text" id="description-two">Description:</p>
+                <p class="card-text" id="humid-two">Humidity:</p>
+                <p class="card-text" id="wind-two">Wind Speed:</p>
+                <p class="card-text" id="pressure-two">Pressure:</p>
             </div>
         </div>
     </div>
@@ -83,10 +153,10 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Friday</h5>
-                <p class="card-text">Description:</p>
-                <p class="card-text">Humidity:</p>
-                <p class="card-text">Wind Speed:</p>
-                <p class="card-text">Pressure:</p>
+                <p class="card-text" id="description-three">Description:</p>
+                <p class="card-text" id="humid-three">Humidity:</p>
+                <p class="card-text" id="wind-three">Wind Speed:</p>
+                <p class="card-text" id="pressure-three">Pressure:</p>
             </div>
         </div>
     </div>
@@ -94,10 +164,10 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Saturday</h5>
-                <p class="card-text">Description:</p>
-                <p class="card-text">Humidity:</p>
-                <p class="card-text">Wind Speed:</p>
-                <p class="card-text">Pressure:</p>
+                <p class="card-text" id="description-four">Description:</p>
+                <p class="card-text" id="humid-four">Humidity:</p>
+                <p class="card-text" id="wind-four">Wind Speed:</p>
+                <p class="card-text" id="pressure-four">Pressure:</p>
             </div>
         </div>
     </div>
@@ -105,21 +175,10 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Sunday</h5>
-                <p class="card-text">Description:</p>
-                <p class="card-text">Humidity:</p>
-                <p class="card-text">Wind Speed:</p>
-                <p class="card-text">Pressure:</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Monday</h5>
-                <p class="card-text">Description:</p>
-                <p class="card-text">Humidity:</p>
-                <p class="card-text">Wind Speed:</p>
-                <p class="card-text">Pressure:</p>
+                <p class="card-text" id="description-five">Description:</p>
+                <p class="card-text" id="humid-five">Humidity:</p>
+                <p class="card-text" id="wind-five">Wind Speed:</p>
+                <p class="card-text" id="pressure-five">Pressure:</p>
             </div>
         </div>
     </div>
