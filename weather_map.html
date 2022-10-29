@@ -20,27 +20,47 @@
    $.ajax(`https://api.openweathermap.org/data/2.5/forecast?lat=${myHomeLat}&lon=${myHomeLon}&appid=${weatherKey}`).done(function(data){
       console.log(data.list[0].weather[0].main)
        console.log(data)
-       let skyStatus = data.list[0].weather[0].main;
-       // data.list.forEach(function(days){
-       //     if(days.list === 1666818000 || 1666872000){
-       //      $("#description").append(`<p>${skyStatus}</p>`)
-       //     }
-       // });
-      // let windSpeed = data.wind.speed;
-      // let humidLevel = data.main.humidity;
-      // let skyStatus = data.weather[0].description;
-      // let bigPressure = data.main.pressure;
+       // WEATHER DESCRIPTION DATA
+       let oneSky = data.list[0].weather[0].description;  //29 OCT
+        let twoSky = data.list[7].weather[0].description; //30 OCT
+       let threeSky = data.list[15].weather[0].description; // 31 OCT
+       let fourSky = data.list[23].weather[0].description; //01 NOV
+       let fiveSky = data.list[31].weather[0].description; // 02 NOV
+       // HUMIDITY DATA
+       let humidOne = data.list[0].main.humidity;
+       let humidTwo = data.list[7].main.humidity;
+       let humidThree = data.list[15].main.humidity;
+       let humidFour = data.list[23].main.humidity;
+       let humidFive = data.list[31].main.humidity;
+       // WIND SPEED DATA
+       let windOne = data.list[0].wind.speed;
+       let windTwo = date.list[7].wind.speed;
+       let windThree = data.list[15].wind.speed;
+       let windFour = data.list[23].wind.speed;
+       let windFive = data.list[31].wind.speed;
+       // PRESSURE DATA
+       let pressOne = data.list[0].main.pressure;
+       let pressTwo = data.list[7].main.pressure;
+       let pressThree = data.list[15].main.pressure;
+       let pressFour = data.list[23].main.pressure;
+       let pressFive = data.list[31].main.pressure;
       // $("#description").append(`<p>${skyStatus}</p>`)
       // $("#humid").append(`<p>${humidLevel} %</p>`)
       // $("#wind").append(`<p>${windSpeed} mph</p>`)
       //  $("#pressure").append(`<p>${bigPressure} inHg</p>`)
    });
+    function convertTime1(){
+       unixTime = 1666904400;
+       dateObj = new Date(unixTime * 1000);
+      var utcStr = dateObj.toUTCString();
+       console.log(utcStr)
+    }
 </script>
 <div class="row">
     <div class="col-sm-2">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Wednesday</h5>
+                <p class="card-title" id="day">Date:</p>
                 <p class="card-text" id="description">Description:</p>
                 <p class="card-text" id="humid">Humidity:</p>
                 <p class="card-text" id="wind">Wind Speed:</p>
