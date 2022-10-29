@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <script src="js/mapbox-geocode-utils.js"></script>-->
-<!--    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">-->
+    <script src="js/mapbox-geocode-utils.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/keys.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="css/weather.css">
     <title>Weather Project</title>
+    <style>
+        #map{
+            width: 100%;
+            height: 300px;
+        }
+    </style>
 </head>
 <body>
 <h1>Charlotte Weather</h1>
@@ -17,12 +24,12 @@
    let myHomeLat = "35.227085";
    let myHomeLon = "-80.843124";
    // If I generated the data for each day the long way, then I would have ALOT of code. I'm going to try a forEach loop to iterate through the list array of obj
-   $.ajax(`https://api.openweathermap.org/data/2.5/forecast?lat=${myHomeLat}&lon=${myHomeLon}&appid=${weatherKey}`).done(function(data){
-      console.log(data.list[0].weather[0].main)
+   $.ajax(`https://api.openweathermap.org/data/2.5/forecast?lat=${myHomeLat}&lon=${myHomeLon}&appid=${weatherKey}`).done(function(data) {
+       console.log(data.list[0].weather[0].main)
        console.log(data)
        // WEATHER DESCRIPTION DATA
        let oneSky = data.list[0].weather[0].description;  //29 OCT
-        let twoSky = data.list[7].weather[0].description; //30 OCT
+       let twoSky = data.list[7].weather[0].description; //30 OCT
        let threeSky = data.list[15].weather[0].description; // 31 OCT
        let fourSky = data.list[23].weather[0].description; //01 NOV
        let fiveSky = data.list[31].weather[0].description; // 02 NOV
@@ -71,45 +78,41 @@
        $("#wind-five").append(`<p>${windFive} MPH</p>`);
        $("#pressure-five").append(`<p>${pressFive}</p>`);
        // CONDITIONAL STATEMENTS FOR ICONS
+       // RE-VISIT THIS SECTION TO ADD MORE CONDITIONS
        // DAY ONE
-       if(oneSky === "overcast clouds"){
+       if (oneSky === "overcast clouds" && "scattered clouds") {
            $("#description").append(`<img src="cover/icons8-cloud-48.png">`)
-       }
-       else if(oneSky === "light rain"){
+       } else if (oneSky === "clear sky") {
+           $("#description").append(`<img src="cover/icons8-sun-48.png">`)
+       } else if (oneSky === "light rain") {
            $("#description").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
        }
        // DAY TWO
-       if(twoSky === "overcast clouds"){
+       if (twoSky === "overcast clouds" && "scattered clouds") {
            $("#description-two").append(`<img src="cover/icons8-cloud-48.png">`)
-       }
-            else if(twoSky === "clear sky"){
-                $("#description-two").append(`<img src="cover/icons8-sun-48.png">`)
-       }
-                else if(twoSky === "light rain"){
-                    $("#description-two").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+       } else if (twoSky === "clear sky") {
+           $("#description-two").append(`<img src="cover/icons8-sun-48.png">`)
+       } else if (twoSky === "light rain") {
+           $("#description-two").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
        }
        // DAY THREE
-       if(threeSky === "overcast clouds"){
+       if (threeSky === "overcast clouds" && "scattered clouds") {
            $("#description-three").append(`<img src="cover/icons8-cloud-48.png">`)
-       }
-            else if(threeSky === "clear sky"){
+       } else if (threeSky === "clear sky") {
            $("#description-three").append(`<img src="cover/icons8-sun-48.png">`)
-       }
-                else if(threeSky === "light rain"){
-                    $("#description-three").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+       } else if (threeSky === "light rain" && "moderate rain") {
+           $("#description-three").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
        }
        // DAY FOUR
-       if(fourSky === "overcast clouds"){
+       if (fourSky === "overcast clouds" && "scattered clouds") {
            $("#description-four").append(`<img src="cover/icons8-cloud-48.png">`)
-       }
-            else if(fourSky === "clear sky"){
+       } else if (fourSky === "clear sky") {
            $("#description-four").append(`<img src="cover/icons8-sun-48.png">`)
-       }
-                else if(fourSky === "light rain") {
+       } else if (fourSky === "light rain") {
            $("#description-four").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
        }
        // DAY FIVE
-       if(fiveSky === "overcast clouds"){
+       if(fiveSky === "overcast clouds" || "scattered clouds"){
            $("#description-five").append(`<img src="cover/icons8-cloud-48.png">`)
        }
             else if(fiveSky === "clear sky"){
@@ -119,12 +122,13 @@
                     $("#description-five").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
        }
    });
-    function convertTime1(){
+   // TIME CONVERSION SECTION REVISIT!
+    let timeConvert = (function(){
        unixTime = 1666904400;
        dateObj = new Date(unixTime * 1000);
       var utcStr = dateObj.toUTCString();
-       console.log(utcStr)
-    }
+       return  utcStr
+    });
 </script>
 <div class="row">
     <div class="col-sm-2">
@@ -189,6 +193,26 @@
     </div>
     <button type="submit" class="btn btn-primary">Find</button>
 </form>
+<!--MAPBOX MAP AREA -->
+<div id="map">
+</div>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+<script>
+    const key = "pk.eyJ1IjoiYnJpdHRuZXliOTUiLCJhIjoiY2w5b2YzbnJ4MGd3bDNwcXAybmI2cGp2biJ9.UZHsmkRO2W6YUG4leShgFA";
+
+    mapboxgl.accessToken = key;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 3,
+        center:[-80.843124,35.227085]
+    });
+    geocode("Charlotte,NC 28202", key).then(function(result) {
+        map.setCenter(result);
+        map.setZoom(15);
+    });
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -27,17 +27,9 @@
     style: 'mapbox://styles/mapbox/streets-v9',
     zoom: 3,
     center:[-80.88123,35.23718]
-    //TODO: Set your own zoom and center
   });
-  //TODO: Set zoom on your own with a map.setZoom call in your console
   let marker = new mapboxgl.Marker().setLngLat([-80.84636, 35.23216,]).addTo(map);
-
-  //TODO: Add your own marker to where we've aligned your map so far
-
-  //TODO: Use the geocode method to add a 2nd marker and popup to your map, then center your map over it
   let popup = new mapboxgl.Popup().setLngLat([-80.84636, 35.23216]).setHTML("<h1>My House</h1>").addTo(map);
-
-  //TODO: Try a reverse geocode yourself and see what address you get back for your coordinates - remember to send up a {lng: <lng>, lat: <lat>} object
   geocode("206 oak circle drive", key).then(function(results){
     console.log(results)
 
