@@ -102,7 +102,7 @@ input:nth-of-type(5):checked ~ main#carousel {
 }
 ul {
     list-style: none;
-    opacity: 70%;
+    opacity: 90%;
     border-radius: 50%;
     height: 50px;
 }
