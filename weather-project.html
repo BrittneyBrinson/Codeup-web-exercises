@@ -9,6 +9,9 @@
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/keys.js"></script>
     <link rel="stylesheet" href="css/weather.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shalimar&display=swap" rel="stylesheet">
     <style>
         body { margin: 0; padding: 0; }
         #map {
@@ -56,7 +59,7 @@
     map.on('click', (e) => {
         e.preventDefault();
         const marker = new mapboxgl.Marker({
-            color: "#FFFFFF",
+            color: "#b528e0",
             draggable: true
          }).setLngLat([e.lngLat.lng, e.lngLat.lat])             // object properties being fed into the event
             .addTo(map);
@@ -67,26 +70,117 @@
         lon:    e.lngLat.lng,
         units: "imperial"
     }).done(function(data) {
-        console.log('5 day forecast', data);
-                                                        // feed coordinates into call for weather map
-        })
+       //console.log('5 day forecast', data);
+            //console.log(data.list[0].wind.speed)         //feed coordinates into call for weather map
+        console.log(data.list[0].main.pressure)             // Checking to see my object dot notation is correct for each variable
+        //DATE INFO
+       let dateOne = data.list[0].dt_txt;
+       let dateTwo = data.list[7].dt_txt;
+       let dateThree = data.list[15].dt_txt;
+       let dateFour = data.list[23].dt_txt;
+       let dateFive = data.list[31].dt_txt;
+        // HUMIDITY INFO
+        let humid = data.list[0].main.humidity;
+        let humidTwo = data.list[7].main.humidity;
+        let humidThree = data.list[15].main.humidity;
+        let humidFour = data.list[23].main.humidity;
+        let humidFive = data.list[31].main.humidity;
+        // WIND INFO
+        let wind = data.list[0].wind.speed;
+        let windTwo = data.list[7].wind.speed;
+        let windThree = data.list[15].wind.speed;
+        let windFour = data.list[23].wind.speed;
+        let windFive = data.list[31].wind.speed;
+        // PRESSURE INFO
+        let press = data.list[0].main.pressure;
+        let pressTwo = data.list[7].main.pressure;
+        let pressThree = data.list[15].main.pressure;
+        let pressFour = data.list[23].main.pressure;
+        let pressFive = data.list[31].main.pressure;
+        // Similar variable names, so it's easier to recall what goes with what
+        $("#date").append(`<p>${dateOne}</p>`)
+        $("#dateTwo").append(`<p>${dateTwo}</p>`)
+        $("#dateThree").append(`<p>${dateThree}</p>`)
+        $("#dateFour").append(`<p>${dateFour}</p>`)
+        $("#dateFive").append(`<p>${dateFive}</p>`)
+
+        $("#humid").append(`<p>${humid}</p>`)
+        $("#humidTwo").append(`<p>${humidTwo}</p>`)
+        $("#humidThree").append(`<p>${humidThree}</p>`)
+        $("#humidFour").append(`<p>${humidFour}</p>`)
+        $("#humidFive").append(`<p>${humidFive}</p>`)
+
+        $("#wind").append(`<p>${wind}</p>`)
+        $("#windTwo").append(`<p>${windTwo}</p>`)
+        $("#windThree").append(`<p>${windThree}</p>`)
+        $("#windFour").append(`<p>${windFour}</p>`)
+        $("#windFive").append(`<p>${windFive}</p>`)
+
+        $("#press").append(`<p>${press}</p>`)
+        $("#pressTwo").append(`<p>${pressTwo}</p>`)
+        $("#pressThree").append(`<p>${pressThree}</p>`)
+        $("#pressFour").append(`<p>${pressFour}</p>`)
+        $("#pressFive").append(`<p>${pressFive}</p>`)
+
+        })                                                  // This is where the weather info function stops
+
     });
 </script>
 <!--Weather Display  -->
-<div id="circle">
+<h2>CLICK ON THE MAP FOR A PREDICTION</h2>
+<div id="circle"></div>
+<div id="weather-info">
     <input type="radio" name="position" checked />
     <input type="radio" name="position" />
     <input type="radio" name="position" />
     <input type="radio" name="position" />
     <input type="radio" name="position" />
     <main id="carousel">
-        <div class="item" ><p id="description"></p></div>
-       <div class="item"></div>                              <!--   use UL to display weather data with appending and Jquery or DOM-->
-        <div class="item" ></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <main>
-</div>
+        <div class="item" >
+
+        </div>
+        <div class="item">
+            <ul>
+                <li id="date">Date:</li>
+                <li id="humid">Humidity:</li>
+                <li id="wind">Wind:</li>
+                <li id="press">Pressure:</li>
+            </ul>
+        </div>                              <!--   use UL to display weather data with appending and Jquery or DOM-->
+        <div class="item" >
+            <ul>
+                <li id="dateTwo">Date:</li>
+                <li id="humidTwo">Humidity: %</li>
+                <li id="windTwo">Wind: MPH</li>
+                <li id="pressTwo">Pressure:</li>
+            </ul>
+        </div>
+        <div class="item">
+            <ul>
+                <li id="dateThree">Date:</li>
+                <li id="humidThree">Humidity: %</li>
+                <li id="windThree">Wind: MPH</li>
+                <li id="pressThree">Pressure:</li>
+            </ul>
+        </div>
+        <div class="item">
+            <ul>
+                <li id="dateFour">Date:</li>
+                <li id="humidFour">Humidity: %</li>
+                <li id="windFour">Wind: MPH</li>
+                <li id="pressFour">Pressure:</li>
+            </ul>
+        </div>
+        <div class="item">
+            <ul>
+                <li id="dateFive">Date:</li>
+                <li id="humidFive">Humidity: %</li>
+                <li id="windFive">Wind: MPH</li>
+                <li id="pressFive">Pressure:</li>
+            </ul>
+        </div>
+ </div>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>

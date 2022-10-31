@@ -1,4 +1,6 @@
 body {
+    background: url(/cover/purple-crystalball-v2.png) no-repeat center center fixed;
+    background-size: cover;
     height: 600px;
     margin: 0;
     display: grid;
@@ -14,8 +16,8 @@ main#carousel {
     width: 100vw;
     height: 500px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center ;
+    justify-content: space-evenly;
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 600px;
@@ -29,7 +31,6 @@ div.item {
     position: fixed;
     width: 300px;
     height: 400px;
-    background-color: coral;
     opacity: 60%;
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
@@ -41,23 +42,23 @@ div.item {
 
 div.item:nth-of-type(1) {
     --offset: 1;
-    background-color: #ff70a6;
+    /*background-color: #ff70a6;*/
 }
 div.item:nth-of-type(2) {
     --offset: 2;
-    background-color: #ff70a6;
+    /*background-color: #ff70a6;*/
 }
 div.item:nth-of-type(3) {
     --offset: 3;
-    background-color: #ff70a6;
+    /*background-color: #ff70a6;*/
 }
 div.item:nth-of-type(4) {
     --offset: 4;
-    background-color: #ff70a6;
+    /*background-color: #ff70a6;*/
 }
 div.item:nth-of-type(5) {
     --offset: 5;
-    background-color: #ff70a6;
+    /*background-color: #ff70a6;*/
 }
 
 input:nth-of-type(1) {
@@ -99,31 +100,24 @@ input:nth-of-type(5) {
 input:nth-of-type(5):checked ~ main#carousel {
     --position: 5;
 }
-
-
-
-
-
-body {
-    background: url(/cover/purple-crystalball-v2.png) no-repeat center center fixed;
-    background-size: cover;
-}
 ul {
     list-style: none;
+    opacity: 40%;
 }
 /*Circle pre-sets*/
 #circle {
     width: 500px;
     height: 500px;
-    position: sticky;
-    margin: 60px 0px 0px 80px;
+    position: fixed;
+    margin: 60px 0px 0px 660px;
     line-height: 50px;
     text-align: center;
     border-radius: 50%;
     font-size: 20px;
     color: #fff;
-    /*border: solid white;*/
+    /*border: solid white;         USE THIS AS A GUIDE TO PLACE THE CRYSTAL BALL TRANSITIONS INSIDE OF THE BALL*/
 }
+
 #input-map {
    position: relative;
 
@@ -132,4 +126,104 @@ ul {
 #input-child {
     position: absolute;
     bottom: 0px;
+}
+h2 {
+    font-family: 'Shalimar', cursive;
+    color: white;
+    background-color: darkmagenta;
+    border-radius: 30%;
+}
+#weather-info{
+    display: flex;
+    height: 100vh;
+    place-items: center start;
+    box-sizing: border-box;
+    margin: 50px 0 80px 600px;
+    padding: 50px;
+    width: 500px;
+    position: fixed;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+}
+/*Ball glow*/
+#circle {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    box-sizing: border-box;
+    margin: 50px 0 80px 650px;
+    padding: 50px;
+    width: 600px;
+    position: fixed;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    opacity: 40%
+}
+
+#circle::before {
+    animation: anim 30s infinite;
+    border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+    content: "";
+    filter: drop-shadow(0 0 3vmin Thistle) drop-shadow(0 5vmin 4vmin Orchid)
+    drop-shadow(2vmin -2vmin 15vmin MediumSlateBlue)
+    drop-shadow(0 0 7vmin MediumOrchid);
+    height: 50vmin;
+    width: 50vmin;
+}
+
+@keyframes anim {
+    0%,
+    100% {
+        border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+        box-shadow: 0 -2vmin 4vmin LightPink inset, 0 -4vmin 4vmin MediumPurple inset,
+        0 -2vmin 7vmin purple inset;
+    }
+
+    10% {
+        border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+    }
+
+    20% {
+        border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+    }
+
+    30% {
+        border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+        box-shadow: 0 -4vmin 8vmin hotpink inset, -1vmin -2vmin 6vmin LightPink inset,
+        -1vmin -2vmin 4vmin MediumPurple inset, 1vmin 4vmin 8vmin purple inset;
+    }
+
+    40% {
+        border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+    }
+
+    50% {
+        border-radius: 100%;
+        box-shadow: 0 4vmin 16vmin hotpink inset, 0 2vmin 5vmin LightPink inset, 0 4vmin 4vmin MediumPurple inset,
+        0 6vmin 8vmin purple inset;
+    }
+
+    60% {
+        border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+    }
+
+    70% {
+        border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
+        box-shadow: 1vmin 1vmin 8vmin LightPink inset,
+        2vmin -1vmin 4vmin MediumPurple inset, -1vmin -1vmin 16vmin purple inset;
+    }
+
+    80% {
+        border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
+    }
+
+    90% {
+        border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+    }
 }
