@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Project</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet' />
     <style>
+        body { margin: 0; padding: 0; }
         #map {
             /* the width and height may be set to any size */
+            position: absolute;
+            top: 0;
+            bottom: 0;
             width: 100%;
             height: 700px;}
     </style>
 </head>
 <body>
-
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 <div id='map'></div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpdHRuZXliOTUiLCJhIjoiY2w5b2YzbnJ4MGd3bDNwcXAybmI2cGp2biJ9.UZHsmkRO2W6YUG4leShgFA';
@@ -24,20 +30,31 @@
         zoom: 9, // starting zoom
         projection: 'globe' // display the map as a 3D globe
     });
+    // Refer to your Mapbox API exercise. Recreate the map below your 5 day forecast. Read through the documentation for the Mapbox API and figure out how to allow the user to drop a pin on any place on the map. Once the user drops a pin, grab its coordinates and feed those into your OpenWeatherMap API. Update the five-day forecast with the information from those coordinates (you should also get rid of your input boxes at this point).
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
     map.on('style.load', () => {
         map.setFog({}); // Set the default atmosphere style
     });
-    var marker = new mapboxgl.Marker()
-        .setLngLat([-98.4916, 29.4260])
-        .addTo(map);
-    var alamoPopup = new mapboxgl.Popup()
-        .setHTML("<p>Remember The Alamo!</p>")
-
-    marker.setPopup(alamoPopup)
-    // var popup = new mapboxgl.Popup()
-    //     .setLngLat([-98.489615, 29.426827])
-    //     .setHTML("<p>Codeup Rocks!</p>")
-    //     .addTo(map)
+    // Set marker options.
+    // const marker = new mapboxgl.Marker({
+    //     color: "#FFFFFF",
+    //     draggable: true
+    // }).setLngLat([30.5, 50.5])
+    //     .addTo(map);
+    // event below gives the coordinates of where the user clicked. Now I need to reference it in object notation.
+    map.on('click', (e) => {
+        e.preventDefault();
+        const marker = new mapboxgl.Marker({
+            color: "#FFFFFF",
+            draggable: true
+         }).setLngLat([e.lngLat.lng, e.lngLat.lat])             // object properties being fed into the event
+            .addTo(map);
+        console.log(e)});
 </script>
 
 
