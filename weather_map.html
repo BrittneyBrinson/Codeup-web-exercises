@@ -13,206 +13,165 @@
     <title>Weather Project</title>
     <style>
         #map{
-            width: 100%;
+            width: 90%;
             height: 300px;
+            margin-bottom: 75px;
+            border-radius: 20px;
         }
     </style>
 </head>
 <body>
-<h1>Charlotte Weather</h1>
 <script>
-   let myHomeLat = "35.227085";
-   let myHomeLon = "-80.843124";
-   // If I generated the data for each day the long way, then I would have ALOT of code. I'm going to try a forEach loop to iterate through the list array of obj
-   $.ajax(`https://api.openweathermap.org/data/2.5/forecast?lat=${myHomeLat}&lon=${myHomeLon}&appid=${weatherKey}`).done(function(data) {
-       console.log(data.list[0].weather[0].main)
-       console.log(data)
-       // WEATHER DESCRIPTION DATA
-       let oneSky = data.list[0].weather[0].description;  //29 OCT
-       let twoSky = data.list[7].weather[0].description; //30 OCT
-       let threeSky = data.list[15].weather[0].description; // 31 OCT
-       let fourSky = data.list[23].weather[0].description; //01 NOV
-       let fiveSky = data.list[31].weather[0].description; // 02 NOV
-       // HUMIDITY DATA
-       let humidOne = data.list[0].main.humidity;
-       let humidTwo = data.list[7].main.humidity;
-       let humidThree = data.list[15].main.humidity;
-       let humidFour = data.list[23].main.humidity;
-       let humidFive = data.list[31].main.humidity;
-       // WIND SPEED DATA
-       let windOne = data.list[0].wind.speed;
-       let windTwo = data.list[7].wind.speed;
-       let windThree = data.list[15].wind.speed;
-       let windFour = data.list[23].wind.speed;
-       let windFive = data.list[31].wind.speed;
-       // PRESSURE DATA
-       let pressOne = data.list[0].main.pressure;
-       let pressTwo = data.list[7].main.pressure;
-       let pressThree = data.list[15].main.pressure;
-       let pressFour = data.list[23].main.pressure;
-       let pressFive = data.list[31].main.pressure;
-       // CARD DATA ORGANIZED
-       // CARD ONE
-       $("#description").append(`<p>${oneSky}</p>`);
-       $("#humid").append(`<p>${humidOne}</p>`);
-       $("#wind").append(`<p>${windOne} MPH</p>`);
-       $("#pressure").append(`<p>${pressOne}</p>`);
-       //CARD TWO
-       $("#description-two").append(`<p>${twoSky}</p>`);
-       $("#humid-two").append(`<p>${humidTwo}</p>`);
-       $("#wind-two").append(`<p>${windTwo} MPH</p>`);
-       $("#pressure-two").append(`<p>${pressTwo}</p>`);
-       // CARD THREE
-       $("#description-three").append(`<p>${threeSky}</p>`);
-       $("#humid-three").append(`<p>${humidThree}</p>`);
-       $("#wind-three").append(`<p>${windThree} MPH</p>`);
-       $("#pressure-three").append(`<p>${pressThree}</p>`);
-       // CARD FOUR
-       $("#description-four").append(`<p>${fourSky}</p>`);
-       $("#humid-four").append(`<p>${humidFour}</p>`);
-       $("#wind-four").append(`<p>${windFour} MPH</p>`);
-       $("#pressure-four").append(`<p>${pressFour}</p>`);
-       // CARD FIVE
-       $("#description-five").append(`<p>${fiveSky}</p>`);
-       $("#humid-five").append(`<p>${humidFive}</p>`);
-       $("#wind-five").append(`<p>${windFive} MPH</p>`);
-       $("#pressure-five").append(`<p>${pressFive}</p>`);
-       // CONDITIONAL STATEMENTS FOR ICONS
-       // RE-VISIT THIS SECTION TO ADD MORE CONDITIONS
-       // DAY ONE
-       if (oneSky === "overcast clouds" && "scattered clouds") {
-           $("#description").append(`<img src="cover/icons8-cloud-48.png">`)
-       } else if (oneSky === "clear sky") {
-           $("#description").append(`<img src="cover/icons8-sun-48.png">`)
-       } else if (oneSky === "light rain") {
-           $("#description").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
-       }
-       // DAY TWO
-       if (twoSky === "overcast clouds" && "scattered clouds") {
-           $("#description-two").append(`<img src="cover/icons8-cloud-48.png">`)
-       } else if (twoSky === "clear sky") {
-           $("#description-two").append(`<img src="cover/icons8-sun-48.png">`)
-       } else if (twoSky === "light rain") {
-           $("#description-two").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
-       }
-       // DAY THREE
-       if (threeSky === "overcast clouds" && "scattered clouds") {
-           $("#description-three").append(`<img src="cover/icons8-cloud-48.png">`)
-       } else if (threeSky === "clear sky") {
-           $("#description-three").append(`<img src="cover/icons8-sun-48.png">`)
-       } else if (threeSky === "light rain" && "moderate rain") {
-           $("#description-three").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
-       }
-       // DAY FOUR
-       if (fourSky === "overcast clouds" && "scattered clouds") {
-           $("#description-four").append(`<img src="cover/icons8-cloud-48.png">`)
-       } else if (fourSky === "clear sky") {
-           $("#description-four").append(`<img src="cover/icons8-sun-48.png">`)
-       } else if (fourSky === "light rain") {
-           $("#description-four").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
-       }
-       // DAY FIVE
-       if(fiveSky === "overcast clouds" || "scattered clouds"){
-           $("#description-five").append(`<img src="cover/icons8-cloud-48.png">`)
-       }
-            else if(fiveSky === "clear sky"){
-                $("#description-five").append(`<img src="cover/icons8-sun-48.png">`)
-       }
-                else if(fiveSky === "light rain") {
-                    $("#description-five").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
-       }
-   });
+    var userInput = ${#city}
+    // $.ajax(`api.openweathermap.org/data/2.5/forecast?q={Charlotte,NC}&appid=${weatherKey}`).done(function (data) {
+    $.ajax(`http://api.openweathermap.org/geo/1.0/direct?q={city name}&limit={limit}&appid=${weatherKey}`).done(function(data, status, jqXhr) {
+        alert("AJAX call completed successfully!");
+        console.log("Request status: " + status);
+        console.log("Data returned from server:");
+        console.log(data);
+    });
+                 // console.log(data)
+                 // console.log(data.list[0].weather[0].main)
+                 // WEATHER DESCRIPTION DATA
+             //     let oneSky = data.list[0].weather[0].description;  //29 OCT
+             //     let twoSky = data.list[7].weather[0].description; //30 OCT
+             //     let threeSky = data.list[15].weather[0].description; // 31 OCT
+             //     let fourSky = data.list[23].weather[0].description; //01 NOV
+             //     let fiveSky = data.list[31].weather[0].description; // 02 NOV
+             //     // HUMIDITY DATA
+             //     let humidOne = data.list[0].main.humidity;
+             //     let humidTwo = data.list[7].main.humidity;
+             //     let humidThree = data.list[15].main.humidity;
+             //     let humidFour = data.list[23].main.humidity;
+             //     let humidFive = data.list[31].main.humidity;
+             //     // WIND SPEED DATA
+             //     let windOne = data.list[0].wind.speed;
+             //     let windTwo = data.list[7].wind.speed;
+             //     let windThree = data.list[15].wind.speed;
+             //     let windFour = data.list[23].wind.speed;
+             //     let windFive = data.list[31].wind.speed;
+             //     // PRESSURE DATA
+             //     let pressOne = data.list[0].main.pressure;
+             //     let pressTwo = data.list[7].main.pressure;
+             //     let pressThree = data.list[15].main.pressure;
+             //     let pressFour = data.list[23].main.pressure;
+             //     let pressFive = data.list[31].main.pressure;
+             //     // CARD DATA ORGANIZED
+             //     // CARD ONE
+             //     $("#description").append(`<p>${oneSky}</p>`);
+             //     $("#humid").append(`<p>${humidOne}</p>`);
+             //     $("#wind").append(`<p>${windOne} MPH</p>`);
+             //     $("#pressure").append(`<p>${pressOne}</p>`);
+             //     //CARD TWO
+             //     $("#description-two").append(`<p>${twoSky}</p>`);
+             //     $("#humid-two").append(`<p>${humidTwo}</p>`);
+             //     $("#wind-two").append(`<p>${windTwo} MPH</p>`);
+             //     $("#pressure-two").append(`<p>${pressTwo}</p>`);
+             //     // CARD THREE
+             //     $("#description-three").append(`<p>${threeSky}</p>`);
+             //     $("#humid-three").append(`<p>${humidThree}</p>`);
+             //     $("#wind-three").append(`<p>${windThree} MPH</p>`);
+             //     $("#pressure-three").append(`<p>${pressThree}</p>`);
+             //     // CARD FOUR
+             //     $("#description-four").append(`<p>${fourSky}</p>`);
+             //     $("#humid-four").append(`<p>${humidFour}</p>`);
+             //     $("#wind-four").append(`<p>${windFour} MPH</p>`);
+             //     $("#pressure-four").append(`<p>${pressFour}</p>`);
+             //     // CARD FIVE
+             //     $("#description-five").append(`<p>${fiveSky}</p>`);
+             //     $("#humid-five").append(`<p>${humidFive}</p>`);
+             //     $("#wind-five").append(`<p>${windFive} MPH</p>`);
+             //     $("#pressure-five").append(`<p>${pressFive}</p>`);
+             // // CONDITIONAL STATEMENTS FOR ICONS
+             // // RE-VISIT THIS SECTION TO ADD MORE CONDITIONS
+             // // DAY ONE
+             // if (oneSky === "overcast clouds" && "scattered clouds") {
+             //     $("#description").append(`<img src="cover/icons8-cloud-48.png">`)
+             // } else if (oneSky === "clear sky") {
+             //     $("#description").append(`<img src="cover/icons8-sun-48.png">`)
+             // } else if (oneSky === "light rain") {
+             //     $("#description").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+             // }
+             // // DAY TWO
+             // if (twoSky === "overcast clouds" && "scattered clouds") {
+             //     $("#description-two").append(`<img src="cover/icons8-cloud-48.png">`)
+             // } else if (twoSky === "clear sky") {
+             //     $("#description-two").append(`<img src="cover/icons8-sun-48.png">`)
+             // } else if (twoSky === "light rain") {
+             //     $("#description-two").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+             // }
+             // // DAY THREE
+             // if (threeSky === "overcast clouds" && "scattered clouds") {
+             //     $("#description-three").append(`<img src="cover/icons8-cloud-48.png">`)
+             // } else if (threeSky === "clear sky") {
+             //     $("#description-three").append(`<img src="cover/icons8-sun-48.png">`)
+             // } else if (threeSky === "light rain" && "moderate rain") {
+             //     $("#description-three").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+             // }
+             // // DAY FOUR
+             // if (fourSky === "overcast clouds" && "scattered clouds") {
+             //     $("#description-four").append(`<img src="cover/icons8-cloud-48.png">`)
+             // } else if (fourSky === "clear sky") {
+             //     $("#description-four").append(`<img src="cover/icons8-sun-48.png">`)
+             // } else if (fourSky === "light rain") {
+             //     $("#description-four").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+             // }
+             // // DAY FIVE
+             // if (fiveSky === "overcast clouds" || "scattered clouds") {
+             //     $("#description-five").append(`<img src="cover/icons8-cloud-48.png">`)
+             // } else if (fiveSky === "clear sky") {
+             //     $("#description-five").append(`<img src="cover/icons8-sun-48.png">`)
+             // } else if (fiveSky === "light rain") {
+             //     $("#description-five").append(`<img src="cover/icons8-cloud-with-rain-48.png">`)
+             // }
+
+         }
    // TIME CONVERSION SECTION REVISIT!
     let timeConvert = (function(){
        unixTime = 1666904400;
        dateObj = new Date(unixTime * 1000);
       var utcStr = dateObj.toUTCString();
        return  utcStr
+        //position-fixed top-50 start-50 translate-middle
     });
 </script>
-<div class="row">
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <p class="card-title" id="day">Date:</p>
-                <p class="card-text" id="description">Description:</p>
-                <p class="card-text" id="humid">Humidity:</p>
-                <p class="card-text" id="wind">Wind Speed:</p>
-                <p class="card-text" id="pressure">Pressure:</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Thursday</h5>
-                <p class="card-text" id="description-two">Description:</p>
-                <p class="card-text" id="humid-two">Humidity:</p>
-                <p class="card-text" id="wind-two">Wind Speed:</p>
-                <p class="card-text" id="pressure-two">Pressure:</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <p class="card-text" id="description-three">Description:</p>
-                <p class="card-text" id="humid-three">Humidity:</p>
-                <p class="card-text" id="wind-three">Wind Speed:</p>
-                <p class="card-text" id="pressure-three">Pressure:</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Saturday</h5>
-                <p class="card-text" id="description-four">Description:</p>
-                <p class="card-text" id="humid-four">Humidity:</p>
-                <p class="card-text" id="wind-four">Wind Speed:</p>
-                <p class="card-text" id="pressure-four">Pressure:</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Sunday</h5>
-                <p class="card-text" id="description-five">Description:</p>
-                <p class="card-text" id="humid-five">Humidity:</p>
-                <p class="card-text" id="wind-five">Wind Speed:</p>
-                <p class="card-text" id="pressure-five">Pressure:</p>
-            </div>
-        </div>
-    </div>
+<div id="circle"> <!--top-50 start-50 container to shrink everything to fit into the crystal ball -->
+<ul>
+    <li id="description">Description:</li>
+    <li id="humid">Humid:</li>
+    <li id="wind">Wind Speed:</li>
+    <li id="pressure">Pressure:</li>
+</ul>
 </div>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Location</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
-    <button type="submit" class="btn btn-primary">Find</button>
-</form>
+<div id="input-map">
+    <div id="input-child">
+        <form>
+            <input type="text" id="cityName" placeholder="Enter a city name"><br>
+            <input type="submit" value="Receive prediction" id="weather_data">
+        </form>
 <!--MAPBOX MAP AREA -->
 <div id="map">
+
 </div>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
 <script>
     const key = "pk.eyJ1IjoiYnJpdHRuZXliOTUiLCJhIjoiY2w5b2YzbnJ4MGd3bDNwcXAybmI2cGp2biJ9.UZHsmkRO2W6YUG4leShgFA";
-
     mapboxgl.accessToken = key;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 3,
-        center:[-80.843124,35.227085]
-    });
-    geocode("Charlotte,NC 28202", key).then(function(result) {
-        map.setCenter(result);
-        map.setZoom(15);
-    });
+        center:[-80.84312,35.22708]
+    })
+    // geocode(`${userInput}`, key).then(function(result) {
+    //     map.setCenter(result);
+    //     map.setZoom(15);
+    // });
 
 </script>
+    </div>
+        </div>
+            </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>
