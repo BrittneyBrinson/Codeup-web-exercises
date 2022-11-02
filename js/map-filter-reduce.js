@@ -48,7 +48,15 @@ let yearsExp = users.reduce(function(totalExp, element){
 }, 0)
 console.log(yearsExp / 5)
 
+let longEmail = users.reduce(function(longest, element){
+   return element.email + longest
+}, " ")
+console.log(longEmail)
+let oneEmail = longEmail.filter(function(){
+
+})
+
 let nameStr = users.reduce(function(userList, element){
-        return "Your instructors are: " + element.name + userList
-}," ")
+        return "Your instructors are: " + userList + " " + element.name + ","
+}, " ")
 console.log(nameStr)
